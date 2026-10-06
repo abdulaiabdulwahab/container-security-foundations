@@ -1,0 +1,17 @@
+# Large base image compared with slim alternatives.
+FROM python:3.12
+
+# Application directory.
+WORKDIR /app
+
+# Copies everything from the build context.
+COPY . .
+
+# Install application dependencies.
+RUN pip install -r requirements.txt
+
+# Application port.
+EXPOSE 5000
+
+# Start application.
+CMD ["python", "app.py"]
